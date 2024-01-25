@@ -13,9 +13,9 @@ def a_plus_abs_b(a, b):
     ['return f(a, b)']
     """
     if b < 0:
-        f = _____
+        f = sub 
     else:
-        f = _____
+        f = add
     return f(a, b)
 
 
@@ -37,7 +37,7 @@ def two_of_three(x, y, z):
     >>> [type(x).__name__ for x in ast.parse(inspect.getsource(two_of_three)).body[0].body]
     ['Expr', 'Return']
     """
-    return _____
+    return min(x,y,z)**2 + (x+y+z-max(x,y,z)-min(x,y,z))**2
 
 
 def largest_factor(n):
@@ -51,7 +51,12 @@ def largest_factor(n):
     1
     """
     "*** YOUR CODE HERE ***"
-
+    i=n-1
+    if(i==0):
+        return 1
+    while(n%i):
+        i=i-1
+    return i
 
 def if_function(condition, true_result, false_result):
     """Return true_result if condition is a true value, and
@@ -96,13 +101,15 @@ def with_if_function():
 
 def cond():
     "*** YOUR CODE HERE ***"
+    return False
 
 def true_func():
     "*** YOUR CODE HERE ***"
+    print(42)
 
 def false_func():
     "*** YOUR CODE HERE ***"
-
+    print(47)
 
 def hailstone(n):
     """Print the hailstone sequence starting at n and return its
@@ -120,4 +127,20 @@ def hailstone(n):
     7
     """
     "*** YOUR CODE HERE ***"
+    
+    #Pick a positive integer n as the start.
+    #If n is even, divide it by 2.
+    #If n is odd, multiply it by 3 and add 1.
+    #Continue this process until n is 1.
+    length=0
+    while(n!=1):
+        print(int(n))
+        length+=1
+        if(n%2==0):
+            n/=2
+        else:
+            n=n*3+1
+    print(1)
+    return length+1   
 
+    
