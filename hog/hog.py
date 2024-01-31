@@ -96,6 +96,19 @@ def swine_align(player_score, opponent_score):
     """
     # BEGIN PROBLEM 4a
     "*** YOUR CODE HERE ***"
+    if(player_score == 0 or opponent_score == 0):
+        return False
+    p1=player_score
+    p2=opponent_score
+    while(p1 % p2 !=0):
+        tp=p1%p2
+        p1=p2
+        p2=tp
+    gcd = p2
+    if (gcd>=10):
+        return True
+    else: return False
+        
     # END PROBLEM 4a
 
 
