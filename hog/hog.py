@@ -178,17 +178,16 @@ def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
     while(score0<goal and score1<goal):
         if(who==0):
             score0+=take_turn(strategy0(score0,score1),score1,dice)
-            if(extra_turn(score0,score1)):continue
+            if(not extra_turn(score0,score1)):who=other(who)
         else:
             score1+=take_turn(strategy1(score1,score0),score0,dice)
-            if(extra_turn(score1,score0)):continue
-        who=other(who)
+            if(not extra_turn(score1,score0)):who=other(who)
+        
 
     # END PROBLEM 5
     # (note that the indentation for the problem 6 prompt (***YOUR CODE HERE***) might be misleading)
     # BEGIN PROBLEM 6
     "*** YOUR CODE HERE ***"
-
     # END PROBLEM 6
     return score0, score1
 
