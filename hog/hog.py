@@ -415,7 +415,12 @@ def extra_turn_strategy(score, opponent_score, cutoff=8, num_rolls=6):
     Otherwise, it rolls NUM_ROLLS.
     """
     # BEGIN PROBLEM 11
-    return 6  # Replace this statement
+    if(extra_turn(score+free_bacon(opponent_score),opponent_score)):
+        return 0
+    else:
+        return bacon_strategy(score, opponent_score, cutoff, num_rolls)
+        
+    #return 6  # Replace this statement
     # END PROBLEM 11
 
 
