@@ -321,6 +321,14 @@ def make_averaged(original_function, trials_count=1000):
     """
     # BEGIN PROBLEM 8
     "*** YOUR CODE HERE ***"
+    def back(*args):
+        t=trials_count
+        sum=0
+        while(t):
+            sum+=original_function(*args)
+            t-=1
+        return sum/trials_count
+    return back
     # END PROBLEM 8
 
 
