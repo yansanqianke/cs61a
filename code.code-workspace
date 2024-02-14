@@ -8,6 +8,9 @@
 		}
 	],
 	"settings": {
-		"maven.view": "flat"
+		"maven.view": "flat",
+		"java.project.sourcePaths": [
+			"java/cs61b/library-sp18"
+		]
 	}
 }
