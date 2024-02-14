@@ -23,6 +23,8 @@ def num_eights(x):
     True
     """
     "*** YOUR CODE HERE ***"
+    if(0==x//10): return int(8==x%10)
+    else: return int(8==x%10)+num_eights(x//10)
 
 
 def pingpong(n):
@@ -58,6 +60,30 @@ def pingpong(n):
     True
     """
     "*** YOUR CODE HERE ***"
+    '''
+    if(1==n): return 1
+    elif 0==n: return 0 
+    elif (n-1)%8==0 or num_eights(n-1):
+        #return pingpong(n-1)-(pingpong(n-1)-pingpong(n-2))
+        return pingpong(n-2)
+    else: return 2*pingpong(n-1)-pingpong(n-2)
+
+    too slow
+    '''
+
+    def direction(x):
+        if x == 1:
+            return 1
+        elif num_eights(x) != 0 or x % 8 == 0:
+            return -direction(x - 1)
+        else:
+            return direction(x - 1)
+        
+    if n == 1:
+        return direction(1) 
+    else:
+        return pingpong(n - 1) + direction(n - 1)
+    
 
 
 def missing_digits(n):
@@ -88,6 +114,11 @@ def missing_digits(n):
     True
     """
     "*** YOUR CODE HERE ***"
+    if n<10: return 0
+    elif n<100:
+        if(n%10==n//10):return 0
+        else: return n%10-n//10-1
+    else: return missing_digits(n//10)+missing_digits(n%100)
 
 
 def next_largest_coin(coin):
@@ -124,6 +155,14 @@ def count_coins(total):
     True
     """
     "*** YOUR CODE HERE ***"
+    #借鉴了网上的思路https://www.cnblogs.com/xddxd/p/17205121.html#_label3
+    def func(all,num=1):
+        if all<num:return 0
+        if num==25:return 1+func(all-num,num)
+        if num==1:return 1+func(all,next_largest_coin(num))
+        return 1+func(all-num,num)+func(all,next_largest_coin(num))
+    return func(total)
+ 
 
 
 from operator import sub, mul
@@ -138,5 +177,9 @@ def make_anonymous_factorial():
     >>> check(HW_SOURCE_FILE, 'make_anonymous_factorial', ['Assign', 'AugAssign', 'FunctionDef', 'Recursion'])
     True
     """
-    return 'YOUR_EXPRESSION_HERE'
+    #return 'YOUR_EXPRESSION_HERE'
+    #离谱https://blog.csdn.net/qq_42103298/article/details/123773235
+    #return (lambda f:lambda x: f(f,x))(lambda f,x:1 if x == 1 else  x*f(f,(x - 1)))
+    # return (lambda a: lambda v: a(a, v))(lambda s, x: 1 if x == 1 else x*s(s, x-1))
+    # return lambda n : (lambda x, function : 1 if x == 1 else x * function(x - 1, function))(n, lambda x, function : 1 if x == 1 else x * function(x - 1, function))
 
