@@ -111,6 +111,16 @@ def max_subseq(n, t):
     5
     """
     "*** YOUR CODE HERE ***"
+    def all_sbsq(a,b):
+        if b==0:return [0]
+        elif a==0:return [0]
+        elif a<=b: return [a]
+        else:
+            def func(c):
+                return c*10+a%10
+            return list(map(func,all_sbsq(a//10,b-1)))+all_sbsq(a//10,b)
+    
+    return max(all_sbsq(n,t))
 
 
 def add_chars(w1, w2):
