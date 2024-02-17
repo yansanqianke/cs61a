@@ -150,4 +150,8 @@ def add_chars(w1, w2):
     True
     """
     "*** YOUR CODE HERE ***"
+    if(w1[0]==w2[0]):
+        if(len(w1)==1):return w2[1:]
+        else:return add_chars(w1[1:],w2[1:])
+    else:return w2[0]+add_chars(w1,w2[1:])
 
