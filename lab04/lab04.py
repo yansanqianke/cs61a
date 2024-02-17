@@ -19,6 +19,8 @@ def skip_add(n):
     True
     """
     "*** YOUR CODE HERE ***"
+    tep=range(0,n+1)
+    return sum(tep[n+1::-2])
 
 
 def summation(n, term):
