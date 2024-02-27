@@ -17,6 +17,12 @@ def choose(paragraphs, select, k):
     """
     # BEGIN PROBLEM 1
     "*** YOUR CODE HERE ***"
+    counter=0
+    for tep in paragraphs:
+        if(select(tep)):
+            if(counter==k): return tep
+            else: counter+=1
+    return ''
     # END PROBLEM 1
 
 
