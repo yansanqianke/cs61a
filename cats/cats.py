@@ -226,6 +226,15 @@ def fastest_words(game):
     word_indices = range(len(all_words(game)))    # contains an *index* for each word
     # BEGIN PROBLEM 10
     "*** YOUR CODE HERE ***"
+    words = all_words(game)
+    times = all_times(game)
+    tot_player = len(times)
+    fastest = [[] for i in range(tot_player)]
+    for i, word in enumerate(words):
+        word_times = [times[player][i] for player in range(tot_player)]
+        idx = min(range(tot_player), key=lambda x: word_times[x])
+        fastest[idx].append(word)
+    return fastest
     # END PROBLEM 10
 
 
