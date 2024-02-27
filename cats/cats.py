@@ -168,6 +168,14 @@ def report_progress(typed, prompt, user_id, send):
     """Send a report of your id and progress so far to the multiplayer server."""
     # BEGIN PROBLEM 8
     "*** YOUR CODE HERE ***"
+    correct=0
+    for i in range(0,len(typed)):
+        if(typed[i]==prompt[i]):correct+=1
+        else:break
+    rate=correct/len(prompt)
+    dic={'id':user_id,'progress':rate}
+    send(dic)
+    return rate
     # END PROBLEM 8
 
 
