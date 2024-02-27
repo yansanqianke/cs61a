@@ -202,6 +202,15 @@ def time_per_word(times_per_player, words):
     """
     # BEGIN PROBLEM 9
     "*** YOUR CODE HERE ***"
+    def cutter(list):
+        back=[]
+        for i in range(1,len(list)):
+            back.append(list[i]-list[i-1])
+        return back
+    new_list=[]
+    for list in times_per_player:
+        new_list.append(cutter(list))
+    return game(words,new_list)
     # END PROBLEM 9
 
 
