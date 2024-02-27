@@ -71,6 +71,20 @@ def accuracy(typed, reference):
     reference_words = split(reference)
     # BEGIN PROBLEM 3
     "*** YOUR CODE HERE ***"
+    if(not typed):return 0.0
+    def correct(tp,ct):
+        if(ct>=len(reference_words)):return False
+        if(reference_words[ct]!=tp):return False
+        return True
+    ct=0
+    incorrect=0
+    for tp in typed_words:
+        if(correct(tp,ct)):
+            ct+=1
+        else:
+            incorrect+=1
+            ct+=1
+    return (1-incorrect/len(typed_words))*100
     # END PROBLEM 3
 
 
