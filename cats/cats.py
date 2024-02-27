@@ -104,6 +104,12 @@ def autocorrect(user_word, valid_words, diff_function, limit):
     """
     # BEGIN PROBLEM 5
     "*** YOUR CODE HERE ***"
+    if(user_word in valid_words):return user_word
+    def diff(word):
+        return diff_function(user_word,word,limit)
+    min_diff=min(valid_words,key=diff)
+    if(diff(min_diff)>limit):return user_word
+    else:return min_diff
     # END PROBLEM 5
 
 
