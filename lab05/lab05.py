@@ -12,6 +12,10 @@ def couple(s, t):
     """
     assert len(s) == len(t)
     "*** YOUR CODE HERE ***"
+    list=[]
+    for i in range(0,len(s)):
+        list.append([s[i],t[i]])
+    return list
 
 
 from math import sqrt
