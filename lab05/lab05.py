@@ -156,7 +156,11 @@ def berry_finder(t):
     True
     """
     "*** YOUR CODE HERE ***"
-
+    if(label(t)=='berry'): return True
+    branch=branches(t)
+    for b in branch:
+        if berry_finder(b): return True
+    return False
 
 def sprout_leaves(t, leaves):
     """Sprout new leaves containing the data in leaves at each leaf in
