@@ -78,4 +78,14 @@ def insert_items(lst, entry, elem):
     True
     """
     "*** YOUR CODE HERE ***"
-
+    flag=0
+    place=0
+    for num in lst:
+        place+=1
+        if flag==1:
+            flag=0
+            continue
+        if num==entry:
+            flag=1
+            lst.insert(place,elem)
+    return lst
