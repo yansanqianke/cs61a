@@ -22,6 +22,7 @@ def make_adder_inc(a):
         nonlocal num
         num+=1
         return a+b+num
+    return adder
 
 
 def make_fib():
