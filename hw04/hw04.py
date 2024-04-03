@@ -100,6 +100,16 @@ def repeated(t, k):
     """
     assert k > 1
     "*** YOUR CODE HERE ***"
+    prev = None
+    sum=0
+    for i in t:
+        if i == prev:
+            sum+=1
+            if sum == k:
+                return i
+        else:
+            sum=1
+            prev=i
 
 
 def permutations(seq):
